@@ -106,6 +106,80 @@ bank.facil.push(
 {m:'verdadeiro',q:'É possível marcar gol diretamente de um escanteio contra o adversário.',v:'vf',a:['Verdadeiro','Falso'],c:0,ex:'Sim, o gol olímpico é válido.',cap:'VERDADEIRO OU FALSO'}
 );
 
+const clubFacts = [
+["Flamengo","Mengão","Rio de Janeiro","Maracanã","Libertadores de 1981, 2019 e 2022"],
+["Fluminense","Tricolor das Laranjeiras","Rio de Janeiro","Maracanã","Libertadores de 2023"],
+["Vasco da Gama","Gigante da Colina","Rio de Janeiro","São Januário","Libertadores de 1998"],
+["Botafogo","Glorioso","Rio de Janeiro","Nilton Santos","Libertadores de 2024"],
+["Corinthians","Timão","São Paulo","Neo Química Arena","Libertadores de 2012"],
+["Palmeiras","Verdão","São Paulo","Allianz Parque","Libertadores de 1999, 2020 e 2021"],
+["São Paulo","Tricolor Paulista","São Paulo","MorumBIS","Libertadores de 1992, 1993 e 2005"],
+["Santos","Peixe","Santos","Vila Belmiro","Libertadores de 1962, 1963 e 2011"],
+["Grêmio","Imortal Tricolor","Porto Alegre","Arena do Grêmio","Libertadores de 1983, 1995 e 2017"],
+["Internacional","Colorado","Porto Alegre","Beira-Rio","Libertadores de 2006 e 2010"],
+["Atlético Mineiro","Galo","Belo Horizonte","Arena MRV","Libertadores de 2013"],
+["Cruzeiro","Raposa","Belo Horizonte","Mineirão","Libertadores de 1976, 1997 e 2003"],
+["Bahia","Esquadrão de Aço","Salvador","Arena Fonte Nova","Campeonato Brasileiro de 1959 e 1988"],
+["Vitória","Leão da Barra","Salvador","Barradão","Campeonatos estaduais baianos"],
+["Sport Recife","Leão da Ilha","Recife","Ilha do Retiro","Copa do Brasil de 2008"],
+["Náutico","Timbu","Recife","Aflitos","Campeonatos estaduais pernambucanos"],
+["Ceará","Vozão","Fortaleza","Arena Castelão","Campeonatos estaduais cearenses"],
+["Fortaleza","Leão do Pici","Fortaleza","Arena Castelão","Campeonatos estaduais cearenses"],
+["Athletico Paranaense","Furacão","Curitiba","Ligga Arena","Campeonato Brasileiro de 2001"],
+["Coritiba","Coxa-Branca","Curitiba","Couto Pereira","Campeonato Brasileiro de 1985"],
+["Goiás","Esmeraldino","Goiânia","Serrinha","Campeonatos estaduais goianos"],
+["Vila Nova","Tigrão","Goiânia","Onésio Brasileiro Alvarenga","Campeonatos estaduais goianos"],
+["América Mineiro","Coelho","Belo Horizonte","Independência","Campeonatos estaduais mineiros"],
+["Red Bull Bragantino","Massa Bruta","Bragança Paulista","Nabi Abi Chedid","Campeonato Brasileiro Série B de 2019"],
+["Juventude","Papo","Caxias do Sul","Alfredo Jaconi","Copa do Brasil de 1999"],
+["Cuiabá","Dourado","Cuiabá","Arena Pantanal","Campeonatos estaduais mato-grossenses"],
+["Ponte Preta","Macaca","Campinas","Moisés Lucarelli","Títulos estaduais do interior paulista"],
+["Guarani","Bugre","Campinas","Brinco de Ouro","Campeonato Brasileiro de 1978"],
+["ABC","Mais Querido","Natal","Frasqueirão","Campeonatos estaduais potiguares"],
+["Paysandu","Papão da Curuzu","Belém","Curuzu","Copa dos Campeões de 2002"],
+["Real Madrid","Los Blancos","Madri","Santiago Bernabéu","Champions League de 15 títulos até 2024"],
+["Barcelona","Barça","Barcelona","Estadi Olímpic Lluís Companys","Champions League de 2006, 2009, 2011, 2015"],
+["Atlético de Madrid","Colchoneros","Madri","Metropolitano","Ligas espanholas de 2014 e 2021"],
+["Manchester United","Red Devils","Manchester","Old Trafford","Champions League de 1968, 1999 e 2008"],
+["Manchester City","Cityzens","Manchester","Etihad Stadium","Champions League de 2023"],
+["Liverpool","Reds","Liverpool","Anfield","Champions League de 6 títulos até 2019"],
+["Arsenal","Gunners","Londres","Emirates Stadium","Campeonatos ingleses, incluindo a temporada invicta de 2003–04"],
+["Chelsea","Blues","Londres","Stamford Bridge","Champions League de 2012 e 2021"],
+["Tottenham","Spurs","Londres","Tottenham Hotspur Stadium","Europa League de 2025"],
+["Bayern de Munique","Bávaros","Munique","Allianz Arena","Champions League de 6 títulos até 2020"],
+["Borussia Dortmund","Aurinegros","Dortmund","Signal Iduna Park","Champions League de 1997"],
+["Bayer Leverkusen","Werkself","Leverkusen","BayArena","Bundesliga invicta de 2023–24"],
+["Paris Saint-Germain","PSG","Paris","Parc des Princes","Champions League de 2025"],
+["Olympique de Marseille","OM","Marselha","Stade Vélodrome","Champions League de 1993"],
+["Milan","Rossoneri","Milão","San Siro","Champions League de 7 títulos até 2007"],
+["Inter de Milão","Nerazzurri","Milão","San Siro","Champions League de 1964, 1965 e 2010"],
+["Juventus","Vecchia Signora","Turim","Allianz Stadium","Champions League de 1985 e 1996"],
+["Napoli","Partenopei","Nápoles","Stadio Diego Armando Maradona","Scudettos de 1987, 1990, 2023 e 2025"],
+["Ajax","Godenzonen","Amsterdã","Johan Cruyff Arena","Champions League de 1971, 1972, 1973 e 1995"],
+["Benfica","Encarnados","Lisboa","Estádio da Luz","Taças dos Campeões Europeus de 1961 e 1962"],
+["Porto","Dragões","Porto","Estádio do Dragão","Champions League de 1987 e 2004"]
+];
+const clubNamePool=clubFacts.map(x=>x[0]);
+function makeQuizOptions(correct,pool){const rest=pool.filter(x=>x!==correct),out=[correct];while(out.length<4){const v=rest[Math.floor(Math.random()*rest.length)];if(!out.includes(v))out.push(v)}for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return {a:out,c:out.indexOf(correct)}}
+function addFiveHundredQuestions(){
+ const templates=[
+  f=>({q:"Qual clube é conhecido pelo apelido “"+f[1]+"”?",answer:f[0],pool:clubNamePool,ex:"“"+f[1]+"” é um apelido associado a "+f[0]+".",m:"escudos"}),
+  f=>({q:"O estádio "+f[3]+" é associado a qual clube?",answer:f[0],pool:clubNamePool,ex:f[3]+" é associado a "+f[0]+".",m:"geral"}),
+  f=>({q:"Em qual cidade fica o clube "+f[0]+"?",answer:f[2],pool:[...new Set(clubFacts.map(x=>x[2]))],ex:f[0]+" é ligado à cidade de "+f[2]+".",m:"geral"}),
+  f=>({q:"Qual clube tem “"+f[1]+"” como apelido popular?",answer:f[0],pool:clubNamePool,ex:"O apelido citado pertence a "+f[0]+".",m:"pistas"}),
+  f=>({q:"Se o jogo é no "+f[3]+", qual clube está relacionado a esse estádio?",answer:f[0],pool:clubNamePool,ex:"O estádio mencionado é associado a "+f[0]+".",m:"geral"}),
+  f=>({q:"A qual equipe pertence a combinação de cidade "+f[2]+" e apelido “"+f[1]+"”?",answer:f[0],pool:clubNamePool,ex:"A combinação corresponde a "+f[0]+".",m:"pistas"}),
+  f=>({q:"Qual clube desta lista tem como referência o estádio "+f[3]+"?",answer:f[0],pool:clubNamePool,ex:"A resposta é "+f[0]+".",m:"escudos"}),
+  f=>({q:"Qual é o clube certo para a pista “"+f[1]+"”, da cidade de "+f[2]+"?",answer:f[0],pool:clubNamePool,ex:f[0]+" é conhecido por esse apelido e cidade.",m:"pistas"}),
+  f=>({q:"Qual conquista histórica está associada a "+f[0]+"?",answer:f[4],pool:[...new Set(clubFacts.map(x=>x[4]))],ex:"A referência histórica listada para "+f[0]+" é: "+f[4]+".",m:"geral"}),
+  f=>({q:"Complete: "+f[0]+" — "+f[2]+" — "+f[3].replace("Estádio ","")+". Qual clube é?",answer:f[0],pool:clubNamePool,ex:"Essas referências apontam para "+f[0]+".",m:"pistas"})
+ ];
+ let n=0;
+ clubFacts.forEach(f=>templates.forEach(t=>{const x=t(f),opts=makeQuizOptions(x.answer,x.pool);const q={m:x.m,q:x.q,v:"text",a:opts.a,c:opts.c,ex:x.ex,cap:x.m==="geral"?"CAMPEONATOS E HISTÓRIA":"CLUBES DO FUTEBOL",_large:true};bank[["facil","medio","dificil"][n%3]].push(q);n++}));
+ return n;
+}
+const generatedQuestionCount=addFiveHundredQuestions();
+
 const visualMap={milan:'shirt',numero:'shirt',palmeiras:'🟢',flamengo:'🔴⚫',pele:'👑',campo:'⚽',argentina:'🇦🇷',vf:'⚖️',copa:'🏆',portugal:'🇵🇹',franca:'🇫🇷',brasil:'🇧🇷'};
 function setDifficulty(d){difficulty=d;document.querySelectorAll('.diff').forEach(b=>b.classList.toggle('active',b.dataset.diff===d))}
 function jersey(back=false){return '<div class="shirt '+(back?'back':'')+'"><div class="sleeve left"></div><div class="sleeve right"></div><div class="body"></div><div class="collar"></div>'+(back?'<div class="name">RAFAEL LEÃO</div><div class="number">10</div>':'<div class="badge">ACM</div><div class="brandmark2">✦</div><div class="sponsor">MILAN</div>')+'</div>'}
